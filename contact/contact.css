@@ -1,0 +1,60 @@
+@font-face {
+    font-family: Balqis;
+    src: url('/Balqis.ttf');
+}
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical
+}
+
+input[type=submit] {
+    background-color: rgb(128, 74, 141);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #cf635f;
+}
+
+.formular-container {
+    border-radius: 5px;
+    background-color: #ddfff7;
+    padding: 20px;
+}
+
+.contact {
+    border-bottom: 10px solid pink;
+    border-style: groove;
+}
+
+#country,
+option {
+    font-family: Balqis;
+}
+
+@media screen and (max-width: 992px) {
+    .main-body {
+        width: 99%;
+    }
+}
+
+
+}
+@media screen and (max-width: 600px) {
+    .main-body {
+        width: 90%;
+    }
+}
