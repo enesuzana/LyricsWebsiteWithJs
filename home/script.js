@@ -1,22 +1,3 @@
-// // Form creation
-// var formLogare = document.createElement("form");
-// var textInput = document.createElement("input");
-// textInput.setAttribute('type', "text");
-// textInput.setAttribute('name', "username");
-// textInput.setAttribute('placeholder', 'Enter username');
-
-
-// formLogare.appendChild(textInput);
-
-// document.getElementsByClassName('gallery-text')[0].appendChild(formLogare);
-
-// SweetAlert import
-// ES6 Modules or TypeScript
-import Swal from 'sweetalert2'
-
-// CommonJS
-const Swal = require('sweetalert2')
-
 window.onload = function() {
     submit.setAttribute("style", "opacity: 0.5;");
     submit.setAttribute('disabled', 'disabled');
@@ -176,6 +157,20 @@ formGrup.appendChild(userTypeLabel);
 formGrup.appendChild(usertype);
 form.appendChild(formGrup);
 
+// Create radio button
+form.appendChild(createElement('p', {
+    textContent: "Choose how many songs"
+}))
+var label, radio;
+label = document.createElement('label');
+radio = document.createElement('input');
+radio.setAttribute('type', 'radio');
+label.appendChild(radio);
+label.appendChild(document.createTextNode("Do you want to be premium?"));
+form.appendChild(label);
+
+
+
 // Create checkbox element
 var formGrup = createElement('div', {
     class: 'form-group',
@@ -233,3 +228,137 @@ checkbox.addEventListener('change', function() {
         };
     }
 })
+
+// Form validation
+
+function checkForm(form) {
+    // validate username
+    if (!validateUsername(username)) {
+        return false;
+    }
+
+    // validate email
+    if (!validateEmail(email)) {
+        return false;
+    }
+    // validate password
+    if (!validatePassword(password)) {
+        return false;
+    }
+    // validate checkbox
+    if (!validateCheckbox) {
+        return false;
+    }
+    alert('Good!');
+    return true;
+}
+
+submit.addEventListener('click', function() {
+    if (!checkForm(form)) {
+
+    }
+})
+
+// VALIDATIONS
+
+// Validate username
+function validateUsername(username) {
+    if (username.value == "") {
+        alert("Error: Username is empty!");
+        username.focus();
+        return false;
+    }
+
+    const usernameFormat = /^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/;
+
+    if (username.value.match(usernameFormat)) {
+        username.focus();
+        return true;
+    }
+    email.focus();
+    return false;
+}
+
+// Validate email
+function validateEmail(email) {
+    if (email.value == "") {
+        alert("Error: Email is empty!");
+        email.focus();
+        return false;
+    }
+
+    const mailformat = /^[a-zA-Z0-9!#$&_*?^{}~-]+(\.[a-zA-Z0-9!#$&_*?^{}~-]+)*@([a-z0-9]+([a-z0-9]*)\.)+[a-zA-Z]+$/;
+
+    if (email.value.match(mailformat)) {
+        email.focus();
+        return true;
+    }
+    email.focus();
+    return false;
+}
+
+
+email.oninput = function() {
+    validateEmail(this);
+};
+
+function validatePassword(password) {
+    if (password.value == "") {
+        alert("Error: Password is empty!");
+        this.focus();
+        return false;
+    }
+
+    const passwordFormat = /(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!#$&_*?^{}~-])[a-zA-Z!#$&_*?^{}~-]{8,}/;
+
+    if (password.value.match(passwordFormat)) {
+        console.log("yay");
+        this.focus();
+        return true;
+    }
+
+    this.focus();
+    return false;
+}
+
+password.oninput = function() {
+    validatePassword(this);
+}
+
+// User type validation
+
+usertype.onchange = function() {
+    if (usertype.selectedIndex > 0) {
+        return true;
+    }
+    alert('First option was selected');
+    return true;
+}
+
+function validateCheckbox() {
+    if (checkbox.checked) {
+        return true;
+    }
+    alert("The checkbox IS NOT checked");
+    return false;
+}
+
+radio.onchange = function validateRadioButton() {
+    if (radio = checkRadio(form.radiofield)) {
+        alert("You selected " + radioValue);
+        return true;
+    }
+    alert("Error: No value was selected!");
+    return false;
+}
+
+const checkSelect = (field) => {
+    let retval = [];
+    for (let el of field.selectedOptions) {
+        retval.push({
+            value: el.value,
+            text: el.text
+        });
+    }
+    return (field.multiple) ? retval : retval[0];
+};
