@@ -6,6 +6,7 @@
 body {
     background-color: #ffe6e6;
     background-repeat: repeat-x;
+    grid-template-rows: 1fr auto;
 }
 
 .header {
@@ -208,9 +209,12 @@ h5 {
 /* Footer */
 
 .footer {
+    grid-row-start: 2;
+    grid-row-end: 3;
     padding: 20px;
     text-align: center;
     background: #ddd;
+    flex-shrink: 0;
 }
 
 .footer a {
@@ -218,8 +222,27 @@ h5 {
 }
 
 .titles {
+    display: inline-flex;
     letter-spacing: 3px;
     text-align: center;
     color: #e60073;
     text-decoration: overline;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    min-height: 100%;
+    /* Equal to height of footer */
+    /* But also accounting for potential margin-bottom of last child */
+    margin-bottom: -50px;
+}
+
+.footer,
+.push {
+    height: 50px;
 }

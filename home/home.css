@@ -175,3 +175,74 @@ div.animation {
         left: 300px;
     }
 }
+
+.gallery {
+    display: grid;
+    width: 800px;
+    height: 800px;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.gallery-image {
+    cursor: pointer;
+    position: relative;
+    display: block;
+}
+
+.gallery-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 800px;
+    height: 450px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    -webkit-transition: opacity 0.6s;
+    -moz-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+    /* vertical-align: bottom; */
+    line-height: 40px;
+}
+
+.gallery-text:hover {
+    opacity: 1;
+}
+
+.gallery-text h3 {
+    color: white;
+    display: inline-table;
+    vertical-align: middle;
+    line-height: 100%;
+}
+
+.form-group {
+    background-color: var(--input_bg);
+    padding-left: 20px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#form-general {
+    background-color: white;
+    width: 280px;
+}
+
+#submit {
+    background-color: purple;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
