@@ -246,12 +246,3 @@ div.animation {
     display: inline-block;
     font-size: 16px;
 }
-
-@keyframes pop {
-    0% {
-        transform: scale(0.50);
-    }
-    90 {
-        transform: scale(1.55);
-    }
-}
