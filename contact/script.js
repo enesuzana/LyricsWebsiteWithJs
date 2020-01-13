@@ -59,3 +59,16 @@ document.body.addEventListener('keydown', function(e) {
         document.body.removeChild(document.getElementById("makeItGrey"));
     }
 });
+
+// random img
+
+createElement('h1', {
+    textContent: 'Or Shut Up Forever',
+    style: 'font-family: Dancing Script;'
+}, document.getElementsByClassName('main-body')[0]);
+
+var imgNew = createElement('img', {
+    id: 'bottomImg',
+    src: '../art.jpg',
+    style: 'max-width: 100%;'
+}, document.getElementsByClassName('main-body')[0]);

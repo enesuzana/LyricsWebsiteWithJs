@@ -92,3 +92,8 @@ option {
 label {
     font-family: Dancing Script;
 }
+.main-body {
+    background: url('cherry.png') no-repeat;
+    background-position: top;
+    background-size: 100%;
+}
