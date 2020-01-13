@@ -397,7 +397,7 @@ function createWelcomePage() {
 
 submit.addEventListener('click', function() {
     "use strict";
-    if (!checkForm(form)) {
+    if (checkForm(form)) {
         alert('congrats, checkfrom corect');
         document.getElementById('form-general').setAttribute("style", "display:none;");
 
