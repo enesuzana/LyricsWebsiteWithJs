@@ -17,7 +17,7 @@ function fadetext() {
         hex2 = 133;
         hex3 = 194;
     }
-}
+};
 
 // set a random image as header image 
 document.getElementsByClassName('header')[0].setAttribute('id', 'header');
@@ -29,7 +29,7 @@ var pictures = new Array('https://i.pinimg.com/originals/8b/61/c1/8b61c154e7f441
     'https://i.pinimg.com/originals/76/90/8b/76908b09072332bd62e7cf92b3042dd2.gif',
     'https://data.whicdn.com/images/319359512/original.gif',
     'https://i.pinimg.com/originals/05/59/3e/05593e925e651314820bbb215b223a5f.jpg'
-);
+)
 var numPics = pictures.length;
 if (document.images) {
     var chosenPic = Math.floor((Math.random() * numPics));

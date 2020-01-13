@@ -21,7 +21,7 @@ function createElement(tagName, attrs, appendTo) {
 
     if (appendTo) appendTo.appendChild(element);
     return element;
-}
+};
 
 var divAjax = createElement('div', {
     class: 'form-group'
@@ -33,13 +33,13 @@ var ajaxButton = createElement('button', {
     textContent: 'Add photos from albums',
     class: 'dropbtn',
     style: 'width:200px; float:inline-end; padding:10px; margin:5px;'
-})
+});
 
 var inputAjax = createElement('input', {
     type: 'text',
     placeholder: 'which album?',
     style: 'width:200px; float:inline-end; padding:10px; margin:1px;'
-})
+});
 
 divAjax.appendChild(inputAjax);
 divAjax.appendChild(ajaxButton);

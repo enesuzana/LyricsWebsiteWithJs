@@ -1,6 +1,8 @@
+/*jslint browser:true */
 // Script
 
 function createElement(tagName, attrs, appendTo) {
+    "use strict";
     var element = document.createElement(tagName);
 
     for (var attr in attrs) {
@@ -32,7 +34,7 @@ var form = createElement('form', {
 // Create email element
 var formGrup = createElement('div', {
     class: 'form-group',
-})
+});
 
 var emailLabel = createElement('label', {
     for: 'Email',
@@ -51,7 +53,7 @@ form.appendChild(formGrup);
 // Create username element
 var formGrup = createElement('div', {
     class: 'form-group',
-})
+});
 
 var usernameLabel = createElement('label', {
     for: 'Username',
@@ -63,14 +65,14 @@ var username = createElement('input', {
     id: 'usernameId',
     class: 'inputs',
     placeholder: 'Enter username'
-}, formGrup)
+}, formGrup);
 
 form.appendChild(formGrup);
 
 // Create password element
 var formGrup = createElement('div', {
     class: 'form-group',
-})
+});
 
 var passwordLabel = createElement('label', {
     for: 'Password',
@@ -89,7 +91,7 @@ form.appendChild(formGrup);
 // Create age range element
 var formGrup = createElement('div', {
     class: 'form-group',
-})
+});
 
 var rangeLabel = createElement('label', {
     for: 'Range',
@@ -118,27 +120,27 @@ var userTypeLabel = createElement('label', {
 
 var usertype = createElement('select', {
     id: 'selectId',
-    class: 'inputs',
-})
+    class: 'inputs'
+});
 
 // Add options to select
 var options = [];
 
 options.push(createElement('option', {
     textContent: 'User'
-}))
+}));
 
 options.push(createElement('option', {
     textContent: 'Company'
-}))
+}));
 
 options.push(createElement('option', {
     textContent: 'Nobody'
-}))
+}));
 
 options.forEach((op) => {
     usertype.appendChild(op);
-})
+});
 
 formGrup.appendChild(userTypeLabel);
 formGrup.appendChild(usertype);
@@ -147,7 +149,7 @@ form.appendChild(formGrup);
 // Create radio button
 form.appendChild(createElement('p', {
     textContent: "Choose how many songs"
-}))
+}));
 var label, radio;
 label = document.createElement('label');
 radio = document.createElement('input');
@@ -160,13 +162,13 @@ form.appendChild(label);
 
 // Create checkbox element
 var formGrup = createElement('div', {
-    class: 'form-group',
-})
+    class: 'form-group'
+});
 
 var link = createElement('a', {
     textContent: 'conditions',
     href: 'https://laborator-fmi-web.educationhost.cloud/pages/ProiectJS.html'
-})
+});
 
 var checkboxLabel = createElement('label', {
     for: 'checkbox',
@@ -178,8 +180,8 @@ checkboxLabel.appendChild(link);
 var checkbox = createElement('input', {
     type: 'checkbox',
     id: 'checkboxId',
-    class: 'inputs',
-})
+    class: 'inputs'
+});
 
 formGrup.appendChild(checkboxLabel);
 formGrup.appendChild(checkbox);
@@ -189,7 +191,7 @@ form.appendChild(formGrup);
 var submit = createElement('button', {
     type: 'button',
     id: 'submit',
-    textContent: 'Submit',
+    textContent: 'Submit'
 }, form);
 
 document.getElementsByClassName('gallery')[0].setAttribute('class', 'main-body');
@@ -200,6 +202,7 @@ document.getElementsByClassName('gallery-text')[0].appendChild(form);
 
 // Change opacity for submit button and enable when checkbox is checked
 document.getElementById('checkboxId').addEventListener('change', function() {
+    "use strict";
     if (this.checked) {
         submit.setAttribute("style", "opacity: 1;");
         submit.disabled = false;
@@ -213,27 +216,29 @@ document.getElementById('checkboxId').addEventListener('change', function() {
             submit.style.cursor = "not-allowed";
         };
     }
-})
+});
 
 var checkboxEvent = document.addEventListener('load', function() {
-        submit = document.getElementById('submitId');
-        if (this.checked) {
-            submit.setAttribute("style", "opacity: 1;");
-            submit.disabled = false;
-            submit.onmouseover = function() {
-                submit.style.cursor = "allowed";
-            };
-        } else {
-            submit.setAttribute("style", "opacity: 0.5;");
-            submit.setAttribute('disabled', 'disabled');
-            submit.onmouseover = function() {
-                submit.style.cursor = "not-allowed";
-            };
-        }
-    })
-    // VALIDATIONS
+    "use strict";
+    submit = document.getElementById('submitId');
+    if (this.checked) {
+        submit.setAttribute("style", "opacity: 1;");
+        submit.disabled = false;
+        submit.onmouseover = function() {
+            submit.style.cursor = "allowed";
+        };
+    } else {
+        submit.setAttribute("style", "opacity: 0.5;");
+        submit.setAttribute('disabled', 'disabled');
+        submit.onmouseover = function() {
+            submit.style.cursor = "not-allowed";
+        };
+    }
+});
+// VALIDATIONS
 
 function validateInput(element, format) {
+    "use strict";
     if (element.value == "") {
         alert("Error: " + element.type + " is empty!");
         element.focus();
@@ -248,16 +253,17 @@ function validateInput(element, format) {
     element.focus();
     element.setAttribute("style", "border: 1px solid red;");
     return false;
-}
+};
 // User type validation
 
 usertype.onchange = function() {
+    "use strict";
     if (usertype.selectedIndex > 0) {
         return true;
     }
     alert('First option was selected');
     return true;
-}
+};
 
 function validateCheckbox() {
     if (checkbox.checked) {
@@ -265,16 +271,17 @@ function validateCheckbox() {
     }
     alert("The checkbox IS NOT checked");
     return false;
-}
+};
 
 
 var checkRadio = false;
 
 function uncheckRadio(radio) {
     radio.checked = false;
-}
+};
 
 radio.addEventListener('click', function() {
+    "use strict";
     if (this.checked && !checkRadio) {
         alert("You selected premium");
         checkRadio = true;
@@ -307,13 +314,14 @@ email.oninput = function() {
 
 username.oninput = function() {
     validateInput(this, usernameFormat);
-}
+};
 
 password.oninput = function() {
     validateInput(this, passwordFormat);
-}
+};
 
 function checkForm(form) {
+    "use strict";
     // validate email
     if (!validateInput(email, emailFormat)) {
         console.log("Email invalid");
@@ -335,9 +343,10 @@ function checkForm(form) {
     }
     alert('Good!');
     return true;
-}
+};
 
 function createWelcomePage() {
+    "use strict";
     document.getElementsByClassName('gallery-text')[0].style.backgroundColor = 'rgba(0, 0, 0, 0)';
     document.getElementsByClassName('gallery-text')[0].style.display = 'none';
     // color picker
@@ -383,10 +392,11 @@ function createWelcomePage() {
         document.getElementById('form-general').setAttribute("style", "display:block;");
         document.getElementsByClassName('gallery-text')[0].setAttribute("style", "display:block;");
     })
-}
+};
 
 
 submit.addEventListener('click', function() {
+    "use strict";
     if (!checkForm(form)) {
         alert('congrats, checkfrom corect');
         document.getElementById('form-general').setAttribute("style", "display:none;");
@@ -411,31 +421,32 @@ submit.addEventListener('click', function() {
         window.localStorage.setItem('user', JSON.stringify(user));
         createWelcomePage();
     }
-})
+});
 
 window.onload = function() {
+    "use strict";
     submit.setAttribute("style", "opacity: 0.5;");
     submit.setAttribute('disabled', 'disabled');
     checkbox.checked = false;
     submit.onmouseover = function() {
         submit.style.cursor = "not-allowed";
     };
-}
+};
 var divv = createElement('div', {
     id: 'audioDiv',
     class: 'form-group',
     style: 'padding:10.5px;'
-})
+});
 var audio = createElement('audio', {
     controls: 'true',
     id: 'myAudio',
     autoplay: 'true'
-})
+});
 
 createElement('source', {
     src: 'waterfountain.mp3',
     type: 'audio/mpeg'
-}, audio)
+}, audio);
 
 divv.appendChild(audio);
 createElement('button', {
