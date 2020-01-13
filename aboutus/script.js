@@ -19,6 +19,8 @@ function createElement(tagName, attrs, appendTo) {
     if (appendTo) appendTo.appendChild(element);
     return element;
 }
+
+// VIDEO CREATED FROM JS
 var videoDiv = createElement('div', {
     class: 'responsive-container'
 })

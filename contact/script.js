@@ -20,7 +20,7 @@ function createElement(tagName, attrs, appendTo) {
     return element;
 }
 
-// change formular color with Set Interval
+// SETINTERVAL, CLEAR INTERVAL -used to change formular background color
 var i = 0;
 
 function change() {
@@ -46,7 +46,7 @@ colorButton.addEventListener("click", function stop() {
 
 var t = 0;
 
-// esc key
+// ESK KEY ON PRESS
 document.body.addEventListener('keydown', function(e) {
     if (e.keyCode == 27 && t == 0) {
         var escape = document.createElement("div");

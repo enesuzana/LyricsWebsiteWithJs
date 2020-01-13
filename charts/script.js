@@ -1,3 +1,4 @@
+// ------- AJAX CALL ---------
 var xhr = new XMLHttpRequest();
 var myObj;
 
@@ -62,6 +63,7 @@ xhr.onload = function() {
             alert('Album id does not exist!');
             return false;
         }
+        // if album exists, create my elements
         for (var i = 0; i < 10; i++) {
             var ol = document.createElement('ol');
             var container = document.createElement("div");
@@ -87,7 +89,7 @@ xhr.onload = function() {
 };
 
 
-// prevent default
+// --- PREVENT DEFAULT of upload button so the page does not go up to the top ---
 
 function fileUpload() {
     document.querySelector('.file-upload__input').click();

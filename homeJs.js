@@ -1,6 +1,6 @@
 /*jslint browser:true */
-// Script
 
+// -- USED TO MAKE ALL INPUTS/OTHER OBJECTS FROM JS 
 function createElement(tagName, attrs, appendTo) {
     "use strict";
     var element = document.createElement(tagName);
@@ -23,6 +23,8 @@ function createElement(tagName, attrs, appendTo) {
     if (appendTo) appendTo.appendChild(element);
     return element;
 }
+
+// --------- ELEMENTS CREATION FROM JS ---------
 
 // Create form element
 var form = createElement('form', {
@@ -123,6 +125,7 @@ var usertype = createElement('select', {
     class: 'inputs'
 });
 
+// -- STRUCTURI DE DATE --
 // Add options to select
 var options = [];
 
@@ -198,8 +201,6 @@ document.getElementsByClassName('gallery')[0].setAttribute('class', 'main-body')
 document.getElementsByClassName('gallery-text')[0].appendChild(form);
 
 
-// Event listeners
-
 // Change opacity for submit button and enable when checkbox is checked
 document.getElementById('checkboxId').addEventListener('change', function() {
     "use strict";
@@ -218,6 +219,7 @@ document.getElementById('checkboxId').addEventListener('change', function() {
     }
 });
 
+// CHANGE SUBMIT ATTRIBUTES WHEN CHECKBOX CHECKED
 var checkboxEvent = document.addEventListener('load', function() {
     "use strict";
     submit = document.getElementById('submitId');
@@ -235,8 +237,10 @@ var checkboxEvent = document.addEventListener('load', function() {
         };
     }
 });
-// VALIDATIONS
 
+// --------- VALIDATIONS ---------
+
+// real time validation of the input fields
 function validateInput(element, format) {
     "use strict";
     if (element.value == "") {
@@ -273,7 +277,7 @@ function validateCheckbox() {
     return false;
 };
 
-
+// CHECK RADIO BUTTON
 var checkRadio = false;
 
 function uncheckRadio(radio) {
@@ -291,7 +295,7 @@ radio.addEventListener('click', function() {
     checkRadio = false;
     return false;
 });
-
+// check options
 const checkSelect = (field) => {
     let retval = [];
     for (let el of field.selectedOptions) {
@@ -303,11 +307,14 @@ const checkSelect = (field) => {
     return (field.multiple) ? retval : retval[0];
 };
 
+// -- REGEX --
+
 // Form validation
 const emailFormat = /^[a-zA-Z0-9!#$&_*?^{}~-]+(\.[a-zA-Z0-9!#$&_*?^{}~-]+)*@([a-z0-9]+([a-z0-9]*)\.)+[a-zA-Z]+$/;
 const usernameFormat = /^[a-zA-Z0-9_]{5,}[a-zA-Z]+[0-9]*$/;
 const passwordFormat = /(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!#$&_*?^{}~-])[a-zA-Z!#$&_*?^{}~-]{8,}/;
 
+// VALIDATE INPUTS IN REAL TIME, change to greenColor if valid
 email.oninput = function() {
     validateInput(this, emailFormat);
 };
@@ -320,6 +327,7 @@ password.oninput = function() {
     validateInput(this, passwordFormat);
 };
 
+// FUNCTION TO CHECK FORM FIELDS
 function checkForm(form) {
     "use strict";
     // validate email
@@ -349,28 +357,28 @@ function createWelcomePage() {
     "use strict";
     document.getElementsByClassName('gallery-text')[0].style.backgroundColor = 'rgba(0, 0, 0, 0)';
     document.getElementsByClassName('gallery-text')[0].style.display = 'none';
-    // color picker
+    // color picker element
     var script = document.createElement('script');
     script.src = 'jscolor.js';
     document.body.appendChild(script);
     var colorPicker = createElement('input', {
-            class: 'jscolor',
-            value: 'ab2567',
-            width: '50px',
-            style: 'margin-left:5px; border-radius: 4px; font-size: 15px; text-align:center;'
-        })
-        // done color picker
+        class: 'jscolor',
+        value: 'ab2567',
+        width: '50px',
+        style: 'margin-left:5px; border-radius: 4px; font-size: 15px; text-align:center;'
+    });
+    // done color picker
     var mainDiv = document.getElementsByClassName('gallery-image')[0];
     var welcomeDiv = document.createElement('div');
-    // welcome text
 
+    // welcome text
     welcomeDiv.setAttribute('id', 'welcome');
     createElement('h1', {
         textContent: 'Welcome, ' + JSON.parse(localStorage.getItem('user')).username + " !"
     }, welcomeDiv);
     mainDiv.prepend(welcomeDiv);
 
-    // background settings change
+    // -- BACKGROUND SETTINGS CHANGE --
     createElement('h3', {
         textContent: 'Set your background color ^.^',
         id: 'textContent',
@@ -378,11 +386,12 @@ function createWelcomePage() {
     }, welcomeDiv);
 
     mainDiv.firstChild.appendChild(colorPicker);
+    // CHANGE BG COLOR WITH CHOSEN COLOR
     colorPicker.addEventListener('change', function() {
         document.body.style.backgroundColor = '#' + this.value;
     }, false)
 
-
+    // DELETE BUTTON TO CLEAR LOCAL STORAGE
     var logDelete = document.createElement("button");
     logDelete.appendChild(document.createTextNode("Stergeti datele de logare"));
     mainDiv.appendChild(logDelete);
@@ -394,13 +403,14 @@ function createWelcomePage() {
     })
 };
 
-
+// -- SUBMIT LOGIN FORM LISTENER --
 submit.addEventListener('click', function() {
     "use strict";
     if (checkForm(form)) {
         alert('congrats, checkfrom corect');
+        // hide form
         document.getElementById('form-general').setAttribute("style", "display:none;");
-
+        // hide animations
         var divWelcome = document.createElement('div');
         var mainDiv = document.getElementsByClassName('main-body')[0];
         mainDiv.appendChild(divWelcome);
@@ -408,6 +418,7 @@ submit.addEventListener('click', function() {
         for (var anim in animations) {
             animations[anim].style = 'display:none;'
         }
+        // change image
         img = document.getElementsByTagName("img")[0];
         img.src = 'topImg.png';
 
@@ -419,10 +430,12 @@ submit.addEventListener('click', function() {
             premium: radio.checked,
         }
         window.localStorage.setItem('user', JSON.stringify(user));
+        // add some more elements
         createWelcomePage();
     }
 });
 
+// On Load make submit button unavailable
 window.onload = function() {
     "use strict";
     submit.setAttribute("style", "opacity: 0.5;");
@@ -432,6 +445,8 @@ window.onload = function() {
         submit.style.cursor = "not-allowed";
     };
 };
+
+// -- AUDIO ELEMENT - DINAMIC --
 var divv = createElement('div', {
     id: 'audioDiv',
     class: 'form-group',
@@ -457,6 +472,8 @@ createElement('button', {
 
 var mBody = document.getElementsByClassName('main-body')[0];
 mBody.appendChild(divv);
+
+// Click button to play it or stop it
 var tryIt = false;
 document.getElementById('audioPlay').onclick = function() {
     if (tryIt) {

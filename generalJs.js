@@ -31,6 +31,8 @@ var pictures = new Array('https://i.pinimg.com/originals/8b/61/c1/8b61c154e7f441
     'https://i.pinimg.com/originals/05/59/3e/05593e925e651314820bbb215b223a5f.jpg'
 )
 var numPics = pictures.length;
+
+// ---- MATH.FLOOR + MATH.RANDOM to change images from my array of images
 if (document.images) {
     var chosenPic = Math.floor((Math.random() * numPics));
     header.style.backgroundSize = 'cover';
@@ -38,6 +40,7 @@ if (document.images) {
     header.style.backgroundPosition = 'center center';
     header.style.backgroundImage = 'url(' + pictures[chosenPic] + ')';
 }
+// animations for text
 var div = document.createElement('div');
 div.setAttribute('class', 'popText');
 header.appendChild(div);
