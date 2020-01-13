@@ -4,8 +4,8 @@
 }
 
 body {
-    /* background-color: #ffe6e6; */
-    background: url('sakuratree.png') no-repeat center center fixed;
+    background-color: #ffe6e6;
+    /* background: url('sakuratree.png') no-repeat center center fixed; */
     font-family: Dancing Script;
     -webkit-background-size: cover;
     -moz-background-size: cover;
