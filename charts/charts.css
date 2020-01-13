@@ -259,3 +259,12 @@ img:hover {
         width: 45%;
     }
 }
+
+.form-group {
+    background-color: var(--input_bg);
+    padding-left: 20px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

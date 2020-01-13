@@ -38,6 +38,7 @@ input[type=submit]:hover {
 .contact {
     border-bottom: 10px solid pink;
     border-style: groove;
+    font-family: Dancing Script;
 }
 
 #country,
@@ -57,4 +58,37 @@ option {
     .main-body {
         width: 90%;
     }
+}
+.escapeClass {
+    background-color: grey;
+    opacity: 0.5;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    position: fixed;
+}
+.form-group {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgb(145, 92, 182);
+    padding-left: 20px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: purple;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    border-radius: 4px;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-family: Alegreya;
+}
+.form-group:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+label {
+    font-family: Dancing Script;
 }

@@ -246,3 +246,18 @@ div.animation {
     display: inline-block;
     font-size: 16px;
 }
+
+.main-body {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 800px;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+#textContent {
+    color: #ffb3cc;
+    text-shadow: #ffffcc 0 0 10px;
+}

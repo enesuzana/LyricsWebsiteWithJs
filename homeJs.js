@@ -22,67 +22,11 @@ function createElement(tagName, attrs, appendTo) {
     return element;
 }
 
-// var hex1 = 239;
-// var hex2 = 194;
-// var hex3 = 224;
-// var headerText = document.getElementsByClassName('header')[0].getElementsByTagName('h1')[0];
-// headerText.style.textShadow = "1px 1px 1px #391326";
-// headerText.setAttribute('style', 'animation:pop 1s ease-in-out;');
-
-// function fadetext() {
-//     if (hex1 > 182) { //If color is not black yet
-//         hex1 -= 5; // increase color darkness
-//         hex2 -= 20;
-//         hex3 -= 11;
-//         headerText.style.color = "rgb(" + hex1 + "," + hex2 + "," + hex3 + ")";
-//         setTimeout("fadetext()", 80);
-//     } else {
-//         hex1 = 224;
-//         hex2 = 133;
-//         hex3 = 194;
-//     }
-// }
-
-window.onload = function() {
-    submit.setAttribute("style", "opacity: 0.5;");
-    submit.setAttribute('disabled', 'disabled');
-    checkbox.checked = false;
-    submit.onmouseover = function() {
-        submit.style.cursor = "not-allowed";
-    };
-
-    // // set a random image as header image 
-    // document.getElementsByClassName('header')[0].setAttribute('id', 'header');
-    // var header = document.getElementById('header');
-    // var pictures = new Array('https://i.pinimg.com/originals/8b/61/c1/8b61c154e7f44146727a32c05a7539d9.gif',
-    //     'https://i.pinimg.com/originals/4c/8e/26/4c8e267ee4446e733bb17564337083f7.jpg',
-    //     'https://i0.wp.com/windowscustomization.com/wp-content/uploads/2018/10/cyberpunk-night-city.gif?fit=750%2C364&quality=80&strip=all&ssl=1',
-    //     'http://s13.favim.com/orig/160531/anime-scenery-gif-anime-gifs-Favim.com-4364443.gif',
-    //     'https://i.pinimg.com/originals/76/90/8b/76908b09072332bd62e7cf92b3042dd2.gif',
-    //     'https://data.whicdn.com/images/319359512/original.gif',
-    //     'https://i.pinimg.com/originals/05/59/3e/05593e925e651314820bbb215b223a5f.jpg'
-    // );
-    // var numPics = pictures.length;
-    // if (document.images) {
-    //     var chosenPic = Math.floor((Math.random() * numPics));
-    //     header.style.backgroundSize = 'cover';
-    //     header.style.backgroundRepeat = 'no-repeat';
-    //     header.style.backgroundPosition = 'center center';
-    //     header.style.backgroundImage = 'url(' + pictures[chosenPic] + ')';
-    // }
-    // var div = document.createElement('div');
-    // div.setAttribute('class', 'popText');
-    // header.appendChild(div);
-    // div.setAttribute('style', 'animation:pop 1s ease-in-out; animation-delay:0.2s;');
-    // div.style.textShadow = "5px 5px 1px #9900ff, 10px 10px 1px #ff4d94";
-    // div.appendChild(document.getElementsByTagName('p')[0]);
-    // fadetext();
-}
-
-
 // Create form element
 var form = createElement('form', {
-    id: 'form-general'
+    id: 'form-general',
+    class: 'main-body',
+    style: 'padding: 2px 2px 2px 2px;margin-top: 16px;'
 });
 
 // Create email element
@@ -93,17 +37,15 @@ var formGrup = createElement('div', {
 var emailLabel = createElement('label', {
     for: 'Email',
     textContent: 'Email'
-});
+}, formGrup);
 
 var email = createElement('input', {
     type: 'email',
     id: 'emailId',
     class: 'inputs',
     placeholder: 'Enter email'
-})
+}, formGrup);
 
-formGrup.appendChild(emailLabel);
-formGrup.appendChild(email);
 form.appendChild(formGrup);
 
 // Create username element
@@ -114,17 +56,15 @@ var formGrup = createElement('div', {
 var usernameLabel = createElement('label', {
     for: 'Username',
     textContent: 'Username'
-});
+}, formGrup);
 
 var username = createElement('input', {
     type: 'username',
     id: 'usernameId',
     class: 'inputs',
     placeholder: 'Enter username'
-})
+}, formGrup)
 
-formGrup.appendChild(usernameLabel);
-formGrup.appendChild(username);
 form.appendChild(formGrup);
 
 // Create password element
@@ -135,17 +75,15 @@ var formGrup = createElement('div', {
 var passwordLabel = createElement('label', {
     for: 'Password',
     textContent: 'Password'
-});
+}, formGrup);
 
 var password = createElement('input', {
     type: 'password',
     id: 'passwordId',
     class: 'inputs',
     placeholder: 'Enter password'
-})
+}, formGrup);
 
-formGrup.appendChild(passwordLabel);
-formGrup.appendChild(password);
 form.appendChild(formGrup);
 
 // Create age range element
@@ -156,7 +94,7 @@ var formGrup = createElement('div', {
 var rangeLabel = createElement('label', {
     for: 'Range',
     textContent: 'Age'
-});
+}, formGrup);
 
 var range = createElement('input', {
     type: 'range',
@@ -164,10 +102,8 @@ var range = createElement('input', {
     placeholder: 'Select age',
     min: '18',
     max: '24'
-})
+}, formGrup);
 
-formGrup.appendChild(rangeLabel);
-formGrup.appendChild(range);
 form.appendChild(formGrup);
 
 // Create select userType element
@@ -178,7 +114,7 @@ var formGrup = createElement('div', {
 var userTypeLabel = createElement('label', {
     for: 'usertype',
     textContent: 'What are you? '
-});
+}, formGrup);
 
 var usertype = createElement('select', {
     id: 'selectId',
@@ -253,18 +189,17 @@ form.appendChild(formGrup);
 var submit = createElement('button', {
     type: 'button',
     id: 'submit',
-    textContent: 'Submit'
-})
-form.appendChild(submit);
+    textContent: 'Submit',
+}, form);
 
-
+document.getElementsByClassName('gallery')[0].setAttribute('class', 'main-body');
 document.getElementsByClassName('gallery-text')[0].appendChild(form);
 
 
 // Event listeners
 
 // Change opacity for submit button and enable when checkbox is checked
-checkbox.addEventListener('change', function() {
+document.getElementById('checkboxId').addEventListener('change', function() {
     if (this.checked) {
         submit.setAttribute("style", "opacity: 1;");
         submit.disabled = false;
@@ -280,11 +215,27 @@ checkbox.addEventListener('change', function() {
     }
 })
 
-// VALIDATIONS
+var checkboxEvent = document.addEventListener('load', function() {
+        submit = document.getElementById('submitId');
+        if (this.checked) {
+            submit.setAttribute("style", "opacity: 1;");
+            submit.disabled = false;
+            submit.onmouseover = function() {
+                submit.style.cursor = "allowed";
+            };
+        } else {
+            submit.setAttribute("style", "opacity: 0.5;");
+            submit.setAttribute('disabled', 'disabled');
+            submit.onmouseover = function() {
+                submit.style.cursor = "not-allowed";
+            };
+        }
+    })
+    // VALIDATIONS
 
 function validateInput(element, format) {
     if (element.value == "") {
-        alert("Error:" + toString(element.type) + " is empty!");
+        alert("Error: " + element.type + " is empty!");
         element.focus();
         return false;
     }
@@ -386,9 +337,87 @@ function checkForm(form) {
     return true;
 }
 
+function createWelcomePage() {
+    document.getElementsByClassName('gallery-text')[0].style.backgroundColor = 'rgba(0, 0, 0, 0)';
+    document.getElementsByClassName('gallery-text')[0].style.display = 'none';
+    // color picker
+    var script = document.createElement('script');
+    script.src = 'jscolor.js';
+    document.body.appendChild(script);
+    var colorPicker = createElement('input', {
+            class: 'jscolor',
+            value: 'ab2567',
+            width: '50px',
+            style: 'margin-left:5px; border-radius: 4px; font-size: 15px; text-align:center;'
+        })
+        // done color picker
+    var mainDiv = document.getElementsByClassName('gallery-image')[0];
+    var welcomeDiv = document.createElement('div');
+    // welcome text
+
+    welcomeDiv.setAttribute('id', 'welcome');
+    createElement('h1', {
+        textContent: 'Welcome, ' + JSON.parse(localStorage.getItem('user')).username + " !"
+    }, welcomeDiv);
+    mainDiv.prepend(welcomeDiv);
+
+    // background settings change
+    createElement('h3', {
+        textContent: 'Set your background color ^.^',
+        id: 'textContent',
+        style: 'margin-left:5px; '
+    }, welcomeDiv);
+
+    mainDiv.firstChild.appendChild(colorPicker);
+    colorPicker.addEventListener('change', function() {
+        document.body.style.backgroundColor = '#' + this.value;
+    }, false)
+
+
+    var logDelete = document.createElement("button");
+    logDelete.appendChild(document.createTextNode("Stergeti datele de logare"));
+    mainDiv.appendChild(logDelete);
+    logDelete.addEventListener('click', function() {
+        window.localStorage.clear();
+        document.getElementById('welcome').setAttribute("style", "display:none;");
+        document.getElementById('form-general').setAttribute("style", "display:block;");
+        document.getElementsByClassName('gallery-text')[0].setAttribute("style", "display:block;");
+    })
+}
+
+
 submit.addEventListener('click', function() {
-    if (checkForm(form)) {
+    if (!checkForm(form)) {
         alert('congrats, checkfrom corect');
-        document.getElementsByClassName('gallery')[0].setAttribute("style", "display:none;");
+        document.getElementById('form-general').setAttribute("style", "display:none;");
+
+        var divWelcome = document.createElement('div');
+        var mainDiv = document.getElementsByClassName('main-body')[0];
+        mainDiv.appendChild(divWelcome);
+        var animations = document.getElementsByClassName('animation');
+        for (var anim in animations) {
+            animations[anim].style = 'display:none;'
+        }
+        img = document.getElementsByTagName("img")[0];
+        img.src = 'topImg.png';
+
+        // local storage
+        const user = {
+            email: email.value,
+            username: username.value,
+            usertype: usertype.value,
+            premium: radio.checked,
+        }
+        window.localStorage.setItem('user', JSON.stringify(user));
+        createWelcomePage();
     }
 })
+
+window.onload = function() {
+    submit.setAttribute("style", "opacity: 0.5;");
+    submit.setAttribute('disabled', 'disabled');
+    checkbox.checked = false;
+    submit.onmouseover = function() {
+        submit.style.cursor = "not-allowed";
+    };
+}
