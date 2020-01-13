@@ -3,3 +3,6 @@ AddType video/x-m4v .m4v
 AddType video/ogg .ogv
 AddType video/mp4 .mp4
 AddType video/webm .webm
+AddType video/x-flv flv
+AddType video/divx divx
+AddType audio/midi rmi

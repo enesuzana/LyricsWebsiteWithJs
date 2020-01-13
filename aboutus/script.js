@@ -19,13 +19,16 @@ function createElement(tagName, attrs, appendTo) {
     if (appendTo) appendTo.appendChild(element);
     return element;
 }
-
-var video = createElement('video', {
-    width: '320',
-    height: '240'
+var videoDiv = createElement('div', {
+    class: 'responsive-container'
+})
+var videoIframe = createElement('iframe', {
+    width: '560',
+    height: '315',
+    src: 'https://www.youtube.com/embed/qPC8AeU0_-8',
+    frameborder: '0',
+    allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',
+    allowfullscreen: 'true'
 });
-var sourceMP4 = document.createElement("source");
-sourceMP4.type = "video/ogg";
-sourceMP4.src = "freshRoses.ogg";
-video.appendChild(sourceMP4);
-document.getElementsByClassName('main-body')[0].appendChild(video);
+videoDiv.appendChild(videoIframe);
+document.getElementsByClassName('main-body')[0].appendChild(videoDiv);

@@ -235,7 +235,8 @@ div.animation {
     width: 280px;
 }
 
-#submit {
+#submit,
+#audioPlay {
     background-color: purple;
     /* Green */
     border: none;

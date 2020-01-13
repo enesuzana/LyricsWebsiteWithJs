@@ -421,3 +421,39 @@ window.onload = function() {
         submit.style.cursor = "not-allowed";
     };
 }
+var divv = createElement('div', {
+    id: 'audioDiv',
+    class: 'form-group',
+    style: 'padding:10.5px;'
+})
+var audio = createElement('audio', {
+    controls: 'true',
+    id: 'myAudio',
+    autoplay: 'true'
+})
+
+createElement('source', {
+    src: 'waterfountain.mp3',
+    type: 'audio/mpeg'
+}, audio)
+
+divv.appendChild(audio);
+createElement('button', {
+    textContent: 'Play music ',
+    id: 'audioPlay',
+    style: 'padding:10.5px;'
+}, divv);
+
+var mBody = document.getElementsByClassName('main-body')[0];
+mBody.appendChild(divv);
+var tryIt = false;
+document.getElementById('audioPlay').onclick = function() {
+    if (tryIt) {
+        document.getElementById('myAudio').pause();
+        this.textContent = 'Play music';
+        tryIt = false;
+        return false;
+    }
+    document.getElementById('myAudio').play();
+    this.textContent = 'Stop music';
+};
