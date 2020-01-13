@@ -1,5 +1,3 @@
-/*jslint browser:true */
-
 // -- USED TO MAKE ALL INPUTS/OTHER OBJECTS FROM JS 
 function createElement(tagName, attrs, appendTo) {
     "use strict";
@@ -405,7 +403,6 @@ function createWelcomePage() {
 
 // -- SUBMIT LOGIN FORM LISTENER --
 submit.addEventListener('click', function() {
-    "use strict";
     if (checkForm(form)) {
         alert('congrats, checkfrom corect');
         // hide form
@@ -437,7 +434,6 @@ submit.addEventListener('click', function() {
 
 // On Load make submit button unavailable
 window.onload = function() {
-    "use strict";
     submit.setAttribute("style", "opacity: 0.5;");
     submit.setAttribute('disabled', 'disabled');
     checkbox.checked = false;
